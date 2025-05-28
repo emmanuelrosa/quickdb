@@ -31,7 +31,6 @@
                 initdb -D "$db_dir"
                 mkdir -p "$db_dir/run"
 
-                echo "unix_socket_directories = '$db_dir/run'" >> "$db_dir/postgresql.conf"
                 echo "To start the database, simply run this script again with the same arguments."
                 echo "Done."
             fi
