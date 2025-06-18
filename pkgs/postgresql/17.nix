@@ -11,7 +11,7 @@
 
         if [ "$#" -eq 1 ]
         then
-            db_dir="$1"
+            db_dir=$(realpath "$1")
         fi
 
         if [ "$db_dir" == "" ]
