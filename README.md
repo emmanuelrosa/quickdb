@@ -6,9 +6,14 @@
 
 - __No root needed__ - You need the [Nix](https://nixos.org) package manager to use `quickdb`, but if you don't already have it you can use the portable version [Nix portable](https://github.com/DavHau/nix-portable).
 - __No additional dependencies__ - You don't need anything other than the [Nix](https://nixos.org) package manager.
+- __Configured for development__ - The database is automatically configured to only listen on localhost, and (except for couchdb) you can just log right in without credentials.
 - __Multi-instance__ - You can easily set up multiple instances of a given database; Just edit the config files to use different ports.
 - __Portable__ - When combined with Nix portable, you can take your database with you on a flash drive.
 - __Runs like a normal process__ - Stdout goes to the console, and a simple CTRL-C stops the database. No weird daemons to deal with.
+
+## Demo
+
+[![asciicast](https://asciinema.org/a/tfH8n3ALPkGMPE5avwIqVqGfG.svg)](https://asciinema.org/a/tfH8n3ALPkGMPE5avwIqVqGfG)
 
 ## Use cases
 
@@ -28,24 +33,24 @@ Each package has three modes of operation:
 
 ### PostgreSQL
 
-1. To create a PostgreSQL database, execute: `nix run github:emmanuelrosa/quickdb-postgresql-17 -- ~/my-postgresql`
+1. To create a PostgreSQL database, execute: `nix run github:emmanuelrosa/quickdb#quickdb-postgresql-17 -- ~/my-postgresql`
 2. To configure the database, edit the `*.conf` files in `~/my-postgresql`. 
-3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb-postgresql-17 -- ~/my-postgresql`
-4. To access the postgresql client tools, using another terminal execute `nix run github:emmanuelrosa/quickdb-postgresql-17`
+3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb#quickdb-postgresql-17 -- ~/my-postgresql`
+4. To access the postgresql client tools, using another terminal execute `nix run github:emmanuelrosa/quickdb#quickdb-postgresql-17`
 5. To stop postgresql, press CTRL-C.
 
 ### MariaDB
 
-1. To create a MariaDB database, execute: `nix run github:emmanuelrosa/quickdb-mariadb-114 -- ~/my-mariadb`
+1. To create a MariaDB database, execute: `nix run github:emmanuelrosa/quickdb#quickdb-mariadb-114 -- ~/my-mariadb`
 2. To configure the database, edit `~/my-mariadb/etc/my.cnf`. 
-3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb-mariadb-114 -- ~/my-mariadb`
-4. To access the mariadb client tools, using another terminal execute `nix run github:emmanuelrosa/quickdb-mariadb-114`
+3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb#quickdb-mariadb-114 -- ~/my-mariadb`
+4. To access the mariadb client tools, using another terminal execute `nix run github:emmanuelrosa/quickdb#quickdb-mariadb-114`
 5. To stop mariadb, press CTRL-C.
 
 ### CouchDB
 
-1. To create a CouchDB database, execute: `nix run github:emmanuelrosa/quickdb-couchdb-3 -- ~/my-couchdb`
-2. To configure the database, edit `~/my-couchdb/etc/local.ini` and `~/my-couchdb/etc/epmd.env`. 
-3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb-couchdb-3 -- ~/my-couchdb`
-4. To access the couchdb client tools, using another terminal execute `nix run github:emmanuelrosa/quickdb-couchdb-3`
+1. To create a CouchDB database, execute: `nix run github:emmanuelrosa/quickdb#quickdb-couchdb-3 -- ~/my-couchdb`
+2. To configure the database, edit `~/my-couchdb/etc/local.ini` and `~/my-couchdb/etc/epmd.env`. The default user name is _admin_ and the password is _password_. 
+3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb#quickdb-couchdb-3 -- ~/my-couchdb`
+4. To use `curl` and `jq` with couchdb, from another terminal execute `nix run github:emmanuelrosa/quickdb#quickdb-couchdb-3`
 5. To stop couchdb, press CTRL-C.
