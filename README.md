@@ -44,7 +44,7 @@ Each package has three modes of operation:
 1. To create a MariaDB database, execute: `nix run github:emmanuelrosa/quickdb#quickdb-mariadb-114 -- ~/my-mariadb`
 2. To configure the database, edit `~/my-mariadb/etc/my.cnf`. 
 3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb#quickdb-mariadb-114 -- ~/my-mariadb`
-4. To access the mariadb client tools, using another terminal execute `nix run github:emmanuelrosa/quickdb#quickdb-mariadb-114`
+4. To access the mariadb client tools, using another terminal execute `nix run github:emmanuelrosa/quickdb#quickdb-mariadb-114`. Before using the mariadb client, set the envirionment variable `MYSQL_UNIX_PORT` to the path to the socket file; ex. `export MYSQL_UNIX_PORT=~/my-mariadb/run/mariadb.sock`
 5. To stop mariadb, press CTRL-C.
 
 ### CouchDB

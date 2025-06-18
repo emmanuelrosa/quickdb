@@ -23,8 +23,6 @@ in writeShellApplication {
 
         if [ "$db_dir" == "" ]
         then
-            export MYSQL_UNIX_PORT="$db_dir/run/mariadb.sock"
-
             echo "Entering BASH shell with $db_name_with_version client utils in the PATH."
             echo "Enter 'exit' to leave the shell."
             env PS1="quickdb $ " bash --norc -i
