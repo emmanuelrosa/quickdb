@@ -15,6 +15,8 @@
 
 [![asciicast](https://asciinema.org/a/tfH8n3ALPkGMPE5avwIqVqGfG.svg)](https://asciinema.org/a/tfH8n3ALPkGMPE5avwIqVqGfG)
 
+Note: In the demo I used localhost when connecting with `psql`. It's also possible to use a socket directory, which is the `run` directory within the database directory. ex` psql -h $PWD/testdb/run DBNAME`. However, `psql` doesn't seem to like relative paths, hence the `$PWD`.
+
 ## Use cases
 
 - __Development__ - I developed `quickdb` in order to quickly and easily set up a database when I need it without having to have the database running 24/7. You can start a database the moment you need it, and shut it down the moment you're done. No root. No `sudo`.
