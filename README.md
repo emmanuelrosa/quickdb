@@ -8,8 +8,8 @@
 - __No additional dependencies__ - You don't need anything other than the [Nix](https://nixos.org) package manager.
 - __Configured for development__ - The database is automatically configured to only listen on localhost, and (except for couchdb) you can just log right in without credentials.
 - __Multi-instance__ - You can easily set up multiple instances of a given database; Just edit the config files to use different ports.
-- __Portable__ - When combined with Nix portable, you can take your database with you on a flash drive.
 - __Runs like a normal process__ - Stdout goes to the console, and a simple CTRL-C stops the database. No weird daemons to deal with.
+- __Multiple database major versions available__ - Using Nixpkgs snapshots as needed, this repo provides easy access to PostgreSQL 17, 18..., MariaDB 11.4, 11.8...
 
 ## Demo
 
@@ -20,8 +20,12 @@ Note: In the demo I used localhost when connecting with `psql`. It's also possib
 ## Use cases
 
 - __Development__ - I developed `quickdb` in order to quickly and easily set up a database when I need it without having to have the database running 24/7. You can start a database the moment you need it, and shut it down the moment you're done. No root. No `sudo`.
-- __Presentations/Demos__ - Take your database with you to demos.
 - __Staging/testing__ - When your done with the database, just delete the directory.
+- __Database migration tests__ - Want to see what happens when upgrading PostgreSQL from 17 to 18? Just make a copy your database directory, and run it with the new version. No sudo needed.
+
+## Packages
+
+To get a list of the available packages, run `nix flake show github:emmanuelrosa/quickdb`
 
 ## Usage
 

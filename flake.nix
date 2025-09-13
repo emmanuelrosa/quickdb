@@ -1,5 +1,5 @@
 {
-  description = "Run a database system as a portable application, using nothing but Nix.";
+  description = "Run a server database system as a CLI application, using nothing but Nix.";
 
   inputs = {
     nixpkgs1.url = "github:nixos/nixpkgs/?ref=502151620cdde8fda50f1f05706caae833379754";
