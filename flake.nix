@@ -10,7 +10,7 @@
     pkgs1 = nixpkgs1.legacyPackages.x86_64-linux;
     pkgs2 = nixpkgs2.legacyPackages.x86_64-linux;
   in {
-    packages.x86_64-linux.quickdb-postgresql-17 = pkgs1.callPackage ./pkgs/postgresql/default.nix { postgresql = pkgs1.postgresql_17; };
+    packages.x86_64-linux.quickdb-postgresql-17 = pkgs2.callPackage ./pkgs/postgresql/default.nix { postgresql = pkgs2.postgresql_17; };
     packages.x86_64-linux.quickdb-postgresql-18 = pkgs2.callPackage ./pkgs/postgresql/default.nix { postgresql = pkgs2.postgresql_18; };
 
     packages.x86_64-linux.quickdb-mariadb-114 = pkgs1.callPackage ./pkgs/mariadb/114.nix { mariadb = pkgs1.mariadb_114; };
