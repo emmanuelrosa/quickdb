@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs1.url = "github:nixos/nixpkgs/?ref=502151620cdde8fda50f1f05706caae833379754";
-    nixpkgs2.url = "github:nixos/nixpkgs/?ref=23da0aa9ec413ed894af3fdc6313e6b8ff623833";
+    nixpkgs2.url = "github:nixos/nixpkgs/?ref=6e86c955fc372d12face4a9c0d932a6e0f7bff4d";
   };
 
   outputs = { self, nixpkgs1, nixpkgs2 }: let
