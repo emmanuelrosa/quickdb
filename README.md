@@ -1,13 +1,13 @@
 # quickdb
 
-`quickdb` is a suite of [Nix](https://nixos.org) packages to easily start development instances of PostgreSQL, MariaDB, or CouchDB on GNU Linux. 
+`quickdb` is a suite of [Nix](https://nixos.org) packages to easily start development instances of PostgreSQL, MariaDB, CouchDB, or neo4j (Community Edition) on GNU Linux. 
 
 ## Features
 
 - __No root needed__ - You need the [Nix](https://nixos.org) package manager to use `quickdb`, but if you don't already have it you can use the portable version [Nix portable](https://github.com/DavHau/nix-portable).
 - __No additional dependencies__ - You don't need anything other than the [Nix](https://nixos.org) package manager.
-- __Configured for development__ - The database is automatically configured to only listen on localhost, and (except for couchdb) you can just log right in without credentials.
-- __Multi-instance__ - You can easily set up multiple instances of a given database; Just edit the config files to use different ports.
+- __Configured for development__ - The database is automatically configured to only listen on localhost, and (except for couchdb and neo4j) you can just log right in without credentials.
+- __Multi-instance__ - You can easily set up multiple instances of a given database; Just run the script with different directory paths and then edit the config files to use different ports.
 - __Runs like a normal process__ - Stdout goes to the console, and a simple CTRL-C stops the database. No weird daemons to deal with.
 - __Multiple database major versions available__ - Using Nixpkgs snapshots as needed, this repo provides easy access to PostgreSQL 17, 18..., MariaDB 11.4, 11.8...
 
@@ -32,7 +32,7 @@ To get a list of the available packages, run `nix flake show github:emmanuelrosa
 Each package has three modes of operation:
 
 1. __Initialization__ - When executed with a path to a non-existent directory, the directory is created and the database system is initialized within the directory. After initialization, the database system can be configured by editing one or more configuration files.
-2. __Execution__ - When executed with a path to an existent directory, it is assumed a database has been initialized within the directory, so the database is started in the foreground. This means standard output is printed to the screen, and a simple CTRL-C is all that's needed to stop the database.
+2. __Execution__ - When executed with a path to an existing directory, it is assumed a database has been initialized within the directory, so the database is started in the foreground. This means standard output is printed to the screen, and a simple CTRL-C is all that's needed to stop the database.
 3. __Shell__ - When executed without any arguments, a BASH shell is started with the database client tools in the PATH.
 
 ## Examples
@@ -60,3 +60,10 @@ Each package has three modes of operation:
 3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb#quickdb-couchdb-3 -- ~/my-couchdb`
 4. To use `curl` and `jq` with couchdb, from another terminal execute `nix run github:emmanuelrosa/quickdb#quickdb-couchdb-3`
 5. To stop couchdb, press CTRL-C.
+
+### Neo4J
+
+1. To create a neo4j database, execute: `nix run github:emmanuelrosa/quickdb#quickdb-neo4j-2026 -- ~/my-neo4j`
+2. To configure the database, edit `~/my-neo4j/neo4j.conf`. The default username and password is 'neo4j'.
+3. To run the database, execute the same command: `nix run github:emmanuelrosa/quickdb#quickdb-neo4j-2026 -- ~/my-neo4j`
+4. To stop neo4j, press CTRL-C.

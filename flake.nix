@@ -16,5 +16,7 @@
     packages.x86_64-linux.quickdb-mariadb-114 = pkgs2.callPackage ./pkgs/mariadb/default.nix { mariadb = pkgs2.mariadb_114; };
     packages.x86_64-linux.quickdb-mariadb-118 = pkgs2.callPackage ./pkgs/mariadb/default.nix { mariadb = pkgs2.mariadb_118; };
     packages.x86_64-linux.quickdb-couchdb-3 = pkgs2.callPackage ./pkgs/couchdb/3.nix { couchdb = pkgs2.couchdb3; };
+
+    packages.x86_64-linux.quickdb-neo4j-2026 = pkgs2.callPackage ./pkgs/neo4j/default.nix { neo4j = pkgs2.neo4j; };
   };
 }
